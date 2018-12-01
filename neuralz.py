@@ -32,7 +32,7 @@ test_image = image.load_img('C:\\Users\\cliff\\Downloads\\images\\c_t_1.jpg', ta
 test_image = image.img_to_array(test_image)
 test_image = np.expand_dims(test_image, axis=0)
 result = classifier.predict(test_image)
-training_set.class_indices
+#training_set.class_indices
 if result[0][0] == 1:
     prediction = 'creeper'
 else:
@@ -56,3 +56,6 @@ with K.get_session() as sess:
     builder.add_meta_graph_and_variables(sess=sess, tags=[tf.saved_model.tag_constants.SERVING], signature_def_map={"predict": signature})
 
 builder.save()
+
+print(classifier.summary())
+
